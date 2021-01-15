@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import com.sultan.books.models.Book;
 import com.sultan.books.repositories.BookRepository;
 @Service
@@ -54,5 +56,10 @@ public class BookService {
 	public void deleteBook(Long id) {
 		bookRepository.deleteById(id);
 	}
+
+    public Book editBook(@Valid Book book) {
+        return bookRepository.save(book);
+	}
+
 	
 }
